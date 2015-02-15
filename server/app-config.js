@@ -6,7 +6,6 @@
   /* GET home page. */
   
   router.get('/', function(req, res) {
-    console.log('got to get');
     res.render('../client/index.html');
   });
 
