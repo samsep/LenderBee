@@ -1,5 +1,6 @@
 /*** @jsx React.DOM */
 var TopBar = require('./TopBar.react');
+var searchBar = require('./searchBar.react');
 var React = require('react');
 
 /**
@@ -33,8 +34,8 @@ var HomePage = React.createClass({
   render: function() {
     return (
       <div>
-        <TopBar />
-        <h1>Welcome, {this.props.userName}</h1>
+        <TopBar name="User" />
+        <searchBar />
       </div>
     );
   },

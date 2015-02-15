@@ -6,6 +6,7 @@ var browserify = require('browserify');
 var watchify = require('watchify');
 var reactify = require('reactify');
 var streamify = require('gulp-streamify');
+nodemon = require('gulp-nodemon')
 
 var less = require('gulp-less');
 var autoprefixer = require('gulp-autoprefixer');
@@ -52,15 +53,6 @@ gulp.task('watch', function() {
     .pipe(gulp.dest(path.DEST_SRC));
 });
 
-gulp.task('less', function() {
-  gulp.src(path.LESS_SRC)
-    //.pipe(sourcemaps.init())
-    .pipe(less())
-    //.pipe(autoprefixer({cascade: false, browsers: ['last 2 versions']}))
-    //.pipe(sourcemaps.write())
-    .pipe(gulp.dest(path.DEST));
-});
-
 gulp.task('build', function(){
   browserify({
     entries: [path.ENTRY_POINT],
@@ -80,6 +72,16 @@ gulp.task('replaceHTML', function(){
     .pipe(gulp.dest(path.DEST));
 });
 
+gulp.task('nodemon', function() {
+    nodemon({
+      script: 'server/app.js',
+      env: {
+        'NODE_ENV': 'development'
+      }
+    })
+      .on('restart');
+  });
+
 gulp.task('production', ['replaceHTML', 'build']);
 
-gulp.task('default', ['watch']);
+gulp.task('default', ['watch', 'nodemon', 'build']);
