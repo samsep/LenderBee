@@ -8,7 +8,6 @@ var SearchBar = require('./SearchBar.react.jsx');
 var Carousel = require('./Carousel.react.jsx');
 var SearchResults = require('./SearchResults.react.jsx');
 var PostPage = require('../postPage.react.jsx');
-var LentPage = require('../items_lent/lentPage.react.jsx');
 var SingleItem = require('../singleItem.react.jsx');
 
 var Search = React.createClass({
@@ -19,7 +18,6 @@ var Search = React.createClass({
         <SearchBar />
         <Carousel />
         <SearchResults />
-        <LentPage />
       </div>
     );
   }
