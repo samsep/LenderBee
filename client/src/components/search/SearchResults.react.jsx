@@ -6,6 +6,17 @@ var searchStore = require('../../stores/searchStore');
 var searchResults = React.createClass({
  
  mixins: [Reflux.connect(searchStore)],
+
+ ResultDiv: React.createClass({
+  render: function() {
+    return (
+      <div>
+      //make request w/ item name??
+      <a href='#'>{this.props.itemName}</a>
+      <img src="#"/>
+      </div>)
+  }
+ })
  
  searchInput: function() {
   console.log($('#searchBar').val());
@@ -21,13 +32,11 @@ var searchResults = React.createClass({
     var matchedItems = this.state.items.filter(function(item){
       return item.name === $('#searchBar').val();
     })
-      .map(function(item) {return <li> {item.name }| Lender Id:{ item.Lender_id}<button>Request Item</button></li>});
+      .map(function(item) {return <ResultDiv>itemName={item.name} itemImage={item.image}});
 
     return (
       <div>
-        <ul>
-          {matchedItems}
-        </ul>
+        {matchedItems}
       </div>
     )
   }

@@ -8,8 +8,9 @@ var searchStore = Reflux.createStore({
     
     init: function() {
       var that = this;
-        request("/api/items/:user", function(res){
+        request("/api/items/" + "" + $('#searchBar').val() + "", function(res){
           that.data.items = JSON.parse(res.text);
+          console.log('ITEMS RETURNED FROM DB', that.data.items);
           that.trigger(that.items);
         })
       },
