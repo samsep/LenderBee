@@ -8,7 +8,8 @@ var actions = Reflux.createActions([
   "requestBorrowedPage",
   "toggleSideNav",
   "searchSubmit",
-  "borrowedItemReturned"
+  "borrowedItemReturned",
+  "itemRequestSubmitted"
 ]);
 
 module.exports = actions;

@@ -7,9 +7,11 @@ var lentStore = Reflux.createStore({
     data: {items: []},
 
     onBorrowedItemReturned: function() {
-      var that = this;
-      request('/api/items/:user/:item', function(res) {
-      })
+      // var that = this;
+      console.log('item returned');
+      // request('/api/items/:user/:item', function(res) {
+
+      // })
     },
     
     onRequestLentPage: function() {

@@ -10,6 +10,11 @@ var singleItemStore = Reflux.createStore({
   //listens to actions
   listenables: [actions],
 
+  onItemRequestSubmitted: function() {
+    //request DB to notify other user;
+    console.log('item requested');
+  },
+
   //gets the item info from the database and sets the data to the item info
   init: function(){
    //  request.get("/api/items/:user", function(res){

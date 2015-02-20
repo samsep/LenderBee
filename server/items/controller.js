@@ -6,6 +6,7 @@ var Message = global.db.Message;
 var controller = {};
 
 controller.create = function(req, res, next){
+
 	//extract the user name
 	//query the user database to get id
 	//set the lender_id of the item to the user id
@@ -67,91 +68,5 @@ controller.getOneByUser = function(req, res, next){
 		.catch(function(error){
 			console.log('items read error ', error);
 		})
-};
-
-// controller.update = function(req, res, next){
-// 	//Where we update the item to borrowed and assign it a borrower_id
-// 	//the request params have a lender username
-// 	//the request body would have the borrower username
-// 	var item = req.params['item'];
-// 	//Search for the item with a title set to the url
-// 	var lender = req.params['user'];
-// 	var borrower = req.body.borrower_id;
-// 	User.find({
-// 		where: {
-// 			id: lender
-// 		}
-// 	})
-// 		.then(function(user){
-// 			Item.find({ //find the item with the title and lender_id equal to the request.body.user
-// 				where: {
-// 					$or: [ //search where the lender_id is equal to the lender and the title is at the
-// 									//current item page
-// 						{lender_id:user.id},
-// 						{title:item}
-// 					]
-// 				}
-// 			})
-// 			.then(function(item){//with the returned item, update its borrower_id and borrowed_status
-// 				//check to see if the item is currently borrowed
-// 				if(item.borrowed === true){
-// 					Item.update({
-// 						borrowed: false,
-// 						borrower_id: null
-// 					},
-// 					{
-// 						where: {
-// 							lender_id: lender,
-// 							title: item
-// 						}
-// 					})
-// 						.then(function(item){//return the items back to the client
-// 							console.log('the correct item has been succesfully updated (returned)', item);
-// 							res.json(item);
-// 						})
-// 				}
-// 				else{
-// 					Item.update({
-// 						borrowed: true,
-// 						borrower_id: borrower
-// 					},
-// 					{
-// 						where: {
-// 							lender_id: lender,
-// 							title: title
-// 						}
-// 					})
-// 						.then(function(item){//return the items back to the client
-// 							console.log('the correct item has been succesfully updated (borrowed)', item);
-// 							res.json(item);
-// 						})
-// 				}
-// 			})
-// 		})
-
-// };
-
-// controller.delete = function(req, res, next){
-// 	//parse out of request
-// 	//deletes the item from the for lend items list - ONLY
-// 	//check to see if item is borrowed, if yes, can't delete
-// 	//otherwise Item.destroy
-// 	Item.find({
-// 		where: {
-// 			title: "Stinger"
-// 		}
-// 	})
-// 	.then(function(item){
-// 		console.log('item after finding it to delete', item)
-// 		Item.destroy({
-// 			where: {
-// 				title: "Stinger"
-// 			}
-// 		})
-// 			.then(function(item){
-// 				console.log('item destroyed!!!!!');
-// 			})
-// 	})
-// };
 
 module.exports = controller;
