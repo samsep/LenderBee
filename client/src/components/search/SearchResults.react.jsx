@@ -21,7 +21,7 @@ var searchResults = React.createClass({
     var matchedItems = this.state.items.filter(function(item){
       return item.name === $('#searchBar').val();
     })
-      .map(function(item) {return <li> {item.name }| Lender Id:{ item.Lender_id} </li>});
+      .map(function(item) {return <li> {item.name }| Lender Id:{ item.Lender_id}<button>Request Item</button></li>});
 
     return (
       <div>

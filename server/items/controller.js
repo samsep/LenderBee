@@ -8,6 +8,7 @@ var Sequelize = require('sequelize');
 
 
 controller.create = function(req, res, next){
+
 	//extract the user name
 	//query the user database to get id
 	//set the lender_id of the item to the user id
@@ -69,6 +70,7 @@ controller.getOneByUser = function(req, res, next){
 		.catch(function(error){
 			console.log('items read error ', error);
 		})
+<<<<<<< HEAD
 	}
 
 // controller.update = function(req, res, next){
