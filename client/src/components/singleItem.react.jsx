@@ -2,6 +2,7 @@ var React = require('react');
 var Reflux = require('reflux');
 var singleItemStore = require('../stores/singleItemStore.js');
 var actions = require('../actions/actions.js');
+var Messaging = require('./messaging.react.jsx');
 
 var singleItem = React.createClass({
   //listens to singleItemStore
@@ -31,6 +32,7 @@ var singleItem = React.createClass({
         <span>Lender Community: {this.state.lender.city+ " " + this.state.lender.state}</span>
         <button name="messageLender" onClick={this.handleMessageLender}>Message Lender</button>
         <button name="requestItem" onClick={this.handleItemRequest}>Request Item</button>
+        <Messaging />
       </div>
     )
   }
