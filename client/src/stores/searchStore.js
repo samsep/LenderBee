@@ -11,10 +11,7 @@ var searchStore = Reflux.createStore({
       var that = this;
         request("/api/items/" + "" + $('#searchBar').val() + "", function(res){
           // that.data.items = res;
-          console.log('ITEMS RETURNED FROM DB', JSON.parse(res.text));
-          console.log('TYPE', Array.isArray(JSON.parse(res.text)));
           that.data.items = JSON.parse(res.text);
-          console.log('MAP', that.data.items.map(function(item) {return item.title}));
           that.trigger(that.data);
         })
       },
