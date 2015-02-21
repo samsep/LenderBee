@@ -4,7 +4,6 @@ var singleItemStore = require('../stores/singleItemStore.js');
 var actions = require('../actions/actions.js');
 
 var singleItem = React.createClass({
-
   //listens to singleItemStore
   mixins: [Reflux.connect(singleItemStore)],
 
@@ -12,16 +11,26 @@ var singleItem = React.createClass({
     actions.itemRequestSubmitted();
   },
 
+  handleMessageLender: function() {
+    console.log('sending to following lender', this.state.item.lender);
+    actions.lenderMessaged(this.state.item.lender);
+  },
+
   render: function(){
+     console.log('THIS IS STATE', this.state)
     return (
       <div>
         <img src="#" href="#" alt="item"/>
-        <p>{this.state.itemName}</p>
-        <p>{this.state.itemDescription}</p>
-        <button name="messageOwner" onClick={this.handleItemRequest}>Request Item</button>
-        <img src="#" href="#" alt="owner"/>
-        <p>{this.state.ownerName}</p>
-        <p>{this.state.ownerRating}</p>
+
+        <p>Item: {this.state.item.name}</p>
+        <p>Description: {this.state.item.description}</p>
+        <p>Pollen Price: {this.state.item.price}</p>
+        <span>Lender: {this.state.lender.username+ " "}</span>
+        <span>{this.state.lender.firstname + " "}</span>
+        <span>{this.state.lender.lastname + " "}</span>
+        <span>Lender Community: {this.state.lender.city+ " " + this.state.lender.state}</span>
+        <button name="messageLender" onClick={this.handleMessageLender}>Message Lender</button>
+        <button name="requestItem" onClick={this.handleItemRequest}>Request Item</button>
       </div>
     )
   }
