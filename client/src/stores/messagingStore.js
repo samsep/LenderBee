@@ -5,14 +5,27 @@ var actions = require('../actions/actions.js');
 
 var messagingStore = Reflux.createStore({
 
-  data: {messages: [{person:"bob",message:"hi"},{person:"larry",message:"yo"},{person:"bob",message:"gimme everything"}]},
+  data: {messages: []},
 
   //listens to actions
   listenables: [actions],
 
+  lender_id: null,
+
 
   onLenderMessaged: function(lenderId) {
-    request("/api/messages/samin/" + "" + lenderId)
+//TODO: CREATE FIRST MESSAGE HERE, GRAB FORM. NAME FORM FIELD = MESSAGE;
+    // request.post("/api/messages/samin" + "" + lenderId + "", function(res) {
+    //   console.log('MESSAGES RECIEVED', res);
+    // });
+    var that = this;
+    that.lender_id = lenderId;
+    request("/api/messages/samin/" + "" + lenderId + "", function(res) {
+      console.log('MESSAGES RECIEVED', res);
+      that.data.messages = JSON.parse(res.text).filter(function(message) {
+        return message.lender_id = lenderId;
+      })
+    });
   },
 
   //gets the item info from the database and sets the data to the item info

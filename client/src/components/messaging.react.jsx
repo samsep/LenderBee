@@ -12,7 +12,7 @@ var Messaging = React.createClass({
   render: function(){
     //creates component for each message and loads them into the array messageGroup
     var messageGroup = this.state.messages.map(function(singleMessage) {
-      return (<div><Message messageInfo={singleMessage} /></div>);
+      return (<div><Message messageInfo={singleMessage.message} lender={lender_id} /></div>);
     });
     return (
       <div>

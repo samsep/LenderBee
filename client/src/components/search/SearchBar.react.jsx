@@ -3,6 +3,7 @@ var Reflux = require('reflux');
 var actions = require('../../actions/actions');
 var searchStore = require('../../stores/searchStore');
 var SearchResults = require('./SearchResults.react.jsx');
+
 var searchBar = React.createClass({
  
  mixins: [Reflux.connect(searchStore)],
