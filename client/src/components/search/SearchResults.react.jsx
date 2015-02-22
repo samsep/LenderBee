@@ -11,7 +11,6 @@ var ResultDiv = React.createClass({
     itemPrice: React.PropTypes.number,
     itemDescription: React.PropTypes.string,
     lenderId: React.PropTypes.number
-
   },
 
   handleClick: function() {

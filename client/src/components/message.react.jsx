@@ -10,7 +10,7 @@ var message = React.createClass({
   render: function(){
     return (
       <div>
-        <p>{this.props.lender + ":"}{this.props.messageInfo.message}</p>
+        <p>{this.props.from + ":"}{this.props.message}</p>
       </div>
     )
   }
