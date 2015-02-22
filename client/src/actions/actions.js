@@ -11,7 +11,8 @@ var actions = Reflux.createActions([
   "selectItem",
   "lenderMessaged",
   "borrowedItemReturned",
-  "itemRequestSubmitted"
+  "itemRequestSubmitted",
+  "messageFormSubmitted"
 ]);
 
 module.exports = actions;

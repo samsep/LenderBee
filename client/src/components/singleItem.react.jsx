@@ -14,7 +14,7 @@ var singleItem = React.createClass({
 
   handleMessageLender: function() {
     console.log('sending to following lender', this.state.item.lender);
-    actions.lenderMessaged(this.state.item.lender);
+    actions.lenderMessaged(this.state.item.lender, this.state.lender.username);
   },
 
   render: function(){

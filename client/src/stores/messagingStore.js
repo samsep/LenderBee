@@ -10,21 +10,30 @@ var messagingStore = Reflux.createStore({
   //listens to actions
   listenables: [actions],
 
-  lender_id: null,
-
-
-  onLenderMessaged: function(lenderId) {
+  onLenderMessaged: function(lenderId, lenderUsername) {
 //TODO: CREATE FIRST MESSAGE HERE, GRAB FORM. NAME FORM FIELD = MESSAGE;
     // request.post("/api/messages/samin" + "" + lenderId + "", function(res) {
     //   console.log('MESSAGES RECIEVED', res);
     // });
+    this.data.lender = lenderUsername;
     var that = this;
-    that.lender_id = lenderId;
-    request("/api/messages/samin/" + "" + lenderId + "", function(res) {
-      console.log('MESSAGES RECIEVED', res);
+    request("/api/messages/samin/", function(res) {
+      
       that.data.messages = JSON.parse(res.text).filter(function(message) {
-        return message.lender_id = lenderId;
-      })
+        return message.lender_id === lenderId || message.borrower_id === lenderId;
+      });
+        for (var i = 0; i < that.data.messages; i++) {
+          var msg = that.data.messages[i];
+            if (msg.lender_id === lenderId) {
+              msg.from = lenderUsername;
+              console.log('ADDING FROM HERE')
+            } else {
+              msg.from = 'You';
+            }
+        }
+        console.log('DIS THE DATA', that.data);
+        that.trigger(that.data);
+
     });
   },
 
