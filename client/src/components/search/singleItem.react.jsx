@@ -1,8 +1,8 @@
 var React = require('react');
 var Reflux = require('reflux');
-var singleItemStore = require('../stores/singleItemStore.js');
-var actions = require('../actions/actions.js');
-var Messaging = require('./messaging.react.jsx');
+var singleItemStore = require('./../../stores/singleItemStore.js');
+var actions = require('./../../actions/actions.js');
+var Messaging = require('../message/messaging.react.jsx');
 
 var singleItem = React.createClass({
   //listens to singleItemStore
