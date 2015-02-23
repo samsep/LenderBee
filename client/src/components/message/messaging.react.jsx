@@ -1,9 +1,9 @@
 var React = require('react');
 var Reflux = require('reflux');
-var messagingStore = require('../stores/messagingStore.js');
+var messagingStore = require('./../../stores/messagingStore.js');
 var Message = require('./message.react.jsx');
 var MessageBox = require('./messageBox.react.jsx');
-var actions = require('../actions/actions.js');
+var actions = require('./../../actions/actions.js');
 
 var Messaging = React.createClass({
   //listens to messagingStore

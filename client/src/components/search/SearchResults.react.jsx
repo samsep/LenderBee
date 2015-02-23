@@ -2,7 +2,7 @@ var React = require('react');
 var Reflux = require('reflux');
 var actions = require('../../actions/actions');
 var searchStore = require('../../stores/searchStore');
-var SingleItem = require('../singleItem.react.jsx');
+var SingleItem = require('./singleItem.react.jsx');
 var SearchBar = require('./SearchBar.react.jsx');
 
 var ResultDiv = React.createClass({
