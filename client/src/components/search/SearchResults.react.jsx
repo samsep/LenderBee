@@ -54,7 +54,7 @@ var searchResults = React.createClass({
       <div>
       <h1>Results</h1>
       {matchedItems}
-      <Map />
+      <Map ref="gMap" />
       </div>
     )
   }
