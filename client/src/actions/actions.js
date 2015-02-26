@@ -15,6 +15,7 @@ var actions = Reflux.createActions([
   "itemRequestSubmitted",
   "messageFormSubmitted",
   "loginToggle",
+  "mapMounted",
 
   /* User Login/Bootstrap Functions */
   /* [Question] Several stores will be listening to these events and will kick off some server requests (Is that an antipattern?) */ 
