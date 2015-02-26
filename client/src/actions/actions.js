@@ -9,6 +9,7 @@ var actions = Reflux.createActions([
   "toggleSideNav",
   "searchSubmit",
   "selectItem",
+  "searchResComplete",
   "lenderMessaged",
   "borrowedItemReturned",
   "itemRequestSubmitted",

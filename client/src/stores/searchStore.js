@@ -13,6 +13,7 @@ var searchStore = Reflux.createStore({
           // that.data.items = res;
           that.data.items = JSON.parse(res.text);
           that.trigger(that.data);
+          actions.searchResComplete(that.data.items);
           });
       },
 

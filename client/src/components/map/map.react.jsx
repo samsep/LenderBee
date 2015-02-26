@@ -1,22 +1,21 @@
 var React = require('react');
 var Reflux = require('reflux');
-var searchStore = require('../../stores/searchStore');
+var mapStore = require('../../stores/map');
 var actions = require('./../../actions/actions');
 
 var map = React.createClass({
 
 	// [Note] These are hard-coded properties, but we need to get the lat/long from the current address
 	// TODO: Figure out how to get lat-long from address or use address with maps api for centering
-	mixins: [Reflux.connect(searchStore)],
+	mixins: [Reflux.connect(mapStore)],
 
   // [Tip] Invoked once immediately after initial rendering, has DOM rep with this.getDOMNode()
   componentDidMount: function() {
     // [Note] Define Map Options needed for rendering map
-    var address = "San Francisco, CA, USA";
     var mapOptions = {center: new google.maps.LatLng(-34.397, 150.644), zoom: 13};
     var map = new google.maps.Map(this.getDOMNode(), mapOptions);
-    var geocoder = new google.maps.Geocoder();
-    this.setState({map:map});
+    
+    // this.setState({map:map});
   },
 
   //   geoCodeItem: function () {
