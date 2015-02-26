@@ -49,10 +49,12 @@ var searchResults = React.createClass({
     var matchedItems = this.state.items.map(function(item) 
       {return <ResultDiv itemName={item.title} itemId={item.id} itemPrice={item.pollenprice} itemDescription={item.description}
       lenderId={item.lender_id} itemId={item.id} onClick={ResultDiv.handleClick} />});
+
     return (
       <div>
       <h1>Results</h1>
       {matchedItems}
+      <Map />
       </div>
     )
   }
