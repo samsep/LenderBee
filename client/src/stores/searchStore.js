@@ -12,13 +12,13 @@ var searchStore = Reflux.createStore({
       },
 
     onSearchSubmit: function(searchedVal) {
-        var that = this;
-                request("/api/items/city/samin/" + "" + searchedVal + "", function(res){
-                  // that.data.items = res;
-                  that.data.items = JSON.parse(res.text);
-                  that.trigger(that.data);
-                  actions.searchResComplete(that.data.items);
-                  });
+      var that = this;
+        request("/api/items/city/samin/" + "" + searchedVal + "", function(res){
+          // that.data.items = res;
+          that.data.items = JSON.parse(res.text);
+          that.trigger(that.data);
+          actions.searchResComplete(that.data.items);
+        });
     },
 
     getInitialState: function() {

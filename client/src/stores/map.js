@@ -49,7 +49,6 @@ var mapStore = Reflux.createStore({
 		};
 		setAllMap(null);
 		this.data.markers = [];
-		this.trigger(this.data);
 		
 		this.data.items = items;
 		this.trigger(this.data);
@@ -57,11 +56,8 @@ var mapStore = Reflux.createStore({
 		
 		// onMapMounted: function(domMap) {
 			this.data.items.forEach(function(item) {
-				console.log('MAP ATM', that.data.map)
 				var address = ""+ item.street + "" + ", " + item.city + ", " + item.state + ", " + item.country
-				console.log('LADRESSE', address);
 					geocoder.geocode({'address': address}, function(results, status) {
-				    console.log('from google maps', results);
 				    if (status == google.maps.GeocoderStatus.OK) {
 				      var marker = new google.maps.Marker({
 				          map: that.data.map,
@@ -74,6 +70,7 @@ var mapStore = Reflux.createStore({
 				      console.log('Geocode was not successful for the following reason: ' + status);
 				    }
 					});
+					
 			setAllMap(that.data.map);
 			});
 		// }

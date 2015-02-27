@@ -4,7 +4,6 @@ var actions = require('../../actions/actions');
 var searchStore = require('../../stores/searchStore');
 var SingleItem = require('./singleItem.react.jsx');
 var SearchBar = require('./SearchBar.react.jsx');
-var Map = require('../map/map.react.jsx');
 var Router = require('react-router');
 var Link = Router.Link;
 
@@ -46,6 +45,7 @@ var searchResults = React.createClass({
  },
 
   render: function() {
+    $('.map-container').remove();
     var matchedItems = this.state.items.map(function(item) 
       {return <ResultDiv itemName={item.title} itemId={item.id} itemPrice={item.pollenprice} itemDescription={item.description}
       lenderId={item.lender_id} itemId={item.id} onClick={ResultDiv.handleClick} />});
@@ -54,7 +54,6 @@ var searchResults = React.createClass({
       <div className="resultsContainer">
       <h1>Results</h1>
       {matchedItems}
-      <Map ref="gMap" />
       </div>
     )
   }
