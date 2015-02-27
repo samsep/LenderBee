@@ -23,7 +23,7 @@ $(document).ready(function(){
 	var ReviewPage 					= require('./components/review/reviewPage.react.jsx');
 	var PostItem 						= require('./components/postPage.react.jsx');
 	var Items 							= require('./components/items/items.jsx');
-	var Map									= require('./components/map/map.react.jsx');
+	// var Map									= require('./components/map/map.react.jsx');
 	var SingleConversation 	= require('./components/message/SingleConversation.react.jsx');
 	var SearchResults 			= require('./components/search/searchResults.react.jsx');
 	var SingleItem 					= require('./components/search/singleItem.react.jsx');
@@ -106,6 +106,7 @@ $(document).ready(function(){
 	  	<Route name="search" path="/" handler={Search} >
 	  		<Route name="ResultsMap" path="/resultsMap" handler={ResultsMap}/>
 	  	</Route>
+	  	<Route name="SearchResults" path="/searchResults" handler={SearchResults}/>
 	  	<Route name="profile" path="/profile" handler={Profile}/>
 	  	<Route name="items" path="/items" handler={Items}/>
 	  	<Route name="notifications" path="/notifications" handler={Notifications}/>
@@ -114,10 +115,8 @@ $(document).ready(function(){
 	  	<Route name="messages" path="/messages" handler={Messaging}/>
 	  	<Route name="messageUser" path="/message" handler={SingleConversation}/>
 	  	<Route name="postItem" path="/post" handler={PostItem}/>
-	  	<Route name="SearchResults" path="/searchResults" handler={SearchResults}/>
 	  	<Route name="SingleItem" path="/singleItem" handler={SingleItem}/>
 	  	<Route name="Messaging" path="/messaging" handler={Message}/>
-	  	<Route name="Map" path="/map" handler={Map}/>
 	  </Route>
 	);
 
