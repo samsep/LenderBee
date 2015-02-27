@@ -2,6 +2,7 @@ var React = require('react');
 var Reflux = require('reflux');
 var mapStore = require('../../stores/map');
 var actions = require('./../../actions/actions');
+var SearchBar = require('../search/SearchBar.react.jsx')
 
 var map = React.createClass({
 
@@ -11,6 +12,7 @@ var map = React.createClass({
 
   // [Tip] Invoked once immediately after initial rendering, has DOM rep with this.getDOMNode()
   componentDidMount: function() {
+      $(".carousel").remove();
       var mapOptions = {center: new google.maps.LatLng(37.7836245,-122.4089988), zoom: 13};
       var gMap = new google.maps.Map(this.getDOMNode(), mapOptions);
       actions.mapMounted(gMap);

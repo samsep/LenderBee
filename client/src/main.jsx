@@ -29,6 +29,7 @@ $(document).ready(function(){
 	var SingleItem 					= require('./components/search/singleItem.react.jsx');
 	var Reviews 						= require('./components/review/reviews.react.jsx');
 	var Login        			  = require('./components/login.react.jsx');
+	var ResultsMap = require('./components/map/resultsMap.react.jsx');
 
 	/* Defines Top Level App Component */
 	var APP = React.createClass({
@@ -101,8 +102,10 @@ $(document).ready(function(){
 	/*<Route name="history" path="/history" handler={History}/>*/
 
 	var routes = (
-	  <Route name="app" path="/" handler={Main}>
-	  	<DefaultRoute name="search" handler={Search}/>
+	    <Route name="app" path="/" handler={Main}>
+	  	<Route name="search" path="/" handler={Search} >
+	  		<Route name="ResultsMap" path="/resultsMap" handler={ResultsMap}/>
+	  	</Route>
 	  	<Route name="profile" path="/profile" handler={Profile}/>
 	  	<Route name="items" path="/items" handler={Items}/>
 	  	<Route name="notifications" path="/notifications" handler={Notifications}/>
@@ -114,6 +117,7 @@ $(document).ready(function(){
 	  	<Route name="SearchResults" path="/searchResults" handler={SearchResults}/>
 	  	<Route name="SingleItem" path="/singleItem" handler={SingleItem}/>
 	  	<Route name="Messaging" path="/messaging" handler={Message}/>
+	  	<Route name="Map" path="/map" handler={Map}/>
 	  </Route>
 	);
 
