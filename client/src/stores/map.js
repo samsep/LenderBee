@@ -62,6 +62,21 @@ var mapStore = Reflux.createStore({
 				          map: that.data.map,
 				          position: results[0].geometry.location
 				      });
+				      var contentString = "this is the item info"
+
+				      var infowindow = new google.maps.InfoWindow({
+		            content: contentString,
+		            maxWidth: 200
+				      });
+
+				      google.maps.event.addListener(marker, 'mouseover', function() {
+				         infowindow.open(that.data.map,marker);
+				       });
+
+				      google.maps.event.addListener(that.data.map, 'mousemove', function() {
+				         infowindow.close();
+				       });
+
 				      that.data.markers.push(marker);
 				      that.trigger(that.data);
 				      // this.setState({map:map});
