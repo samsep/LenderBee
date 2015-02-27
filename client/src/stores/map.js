@@ -2,9 +2,13 @@ var React 	= require('react');
 var Reflux 	= require('reflux');
 var actions = require('../actions/actions');
 var request = require('superagent');
-
+var Router = require('react-router')
+var ResultsMap = require('../components/search/SingleItem.react.jsx');
+var Link = Router.Link;
+// var InfoContent = require('../components/map/infoContent.react.jsx');
 
 var mapStore = Reflux.createStore({
+	mixins: [Router.Navigation],
 	listenables: [actions],
 	data: {items: [], map: {}, markers: [], origAddress: {}},
 	
@@ -62,12 +66,16 @@ var mapStore = Reflux.createStore({
 				          map: that.data.map,
 				          position: results[0].geometry.location
 				      });
-				      var contentString = "this is the item info"
+
+				      var name = item.title;
+				      var link = '<a href="#/singleItem" onclick="actions.selectItem(item.name, item.id, item.pollenprice, item.description)">'+item.title+'</a>'
+				      var contentString = "" + link + ": " + item.description + " Price: " + item.pollenprice + ""
 
 				      var infowindow = new google.maps.InfoWindow({
 		            content: contentString,
 		            maxWidth: 200
 				      });
+
 
 				      google.maps.event.addListener(marker, 'mouseover', function() {
 				         infowindow.open(that.data.map,marker);
@@ -75,6 +83,12 @@ var mapStore = Reflux.createStore({
 
 				      google.maps.event.addListener(that.data.map, 'mousemove', function() {
 				         infowindow.close();
+				       });
+
+				      google.maps.event.addListener(infowindow, 'click', function() {
+				      		console.log('INFO WINDOW CLICKED')
+				         // actions.selectItem(item.name, item.id, item.pollenprice, item.description);
+				         // ResultsMap.transitionTo('SingleItem');
 				       });
 
 				      that.data.markers.push(marker);

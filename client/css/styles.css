@@ -126,15 +126,12 @@ div .map-container {
   margin: auto;
 }
 
-/*.gm-style > div:first-child > div + div > div:last-child > div > div:first-child > div
+.gm-style > div:first-child > div + div > div:last-child > div > div:first-child > div
 {
-     we have to use !important because we are overwritng inline styles 
-    background-color: "yellow" !important;
-    box-shadow: none !important;
-    width: 100px !important;
-    height: 20px !important;
+    /* we have to use !important because we are overwritng inline styles */
+    color: "yellow" !important;
 }
-*/
+
 /* arrow colour */
 /*.gm-style > div:first-child > div + div > div:last-child > div > div:first-child > div > div > div
 {
@@ -142,17 +139,16 @@ div .map-container {
 }
 */
 /* close button */
-/*.gm-style > div:first-child > div + div > div:last-child > div > div:last-child
-{
-    margin-right: 5px;
-    margin-top: 5px;
-}
-*/
-/* image icon inside close button */
-/*.gm-style > div:first-child > div + div > div:last-child > div > div:last-child > img
+.gm-style > div:first-child > div + div > div:last-child > div > div:last-child
 {
     display: none;
-}*/
+}
+
+/* image icon inside close button */
+.gm-style > div:first-child > div + div > div:last-child > div > div:last-child > img
+{
+    display: none;
+}
 
 /* positioning of infowindow */
 /*.gm-style-iw

@@ -2,7 +2,8 @@ var React = require('react');
 var Reflux = require('reflux');
 var mapStore = require('../../stores/map');
 var actions = require('./../../actions/actions');
-var SearchBar = require('../search/SearchBar.react.jsx')
+var SearchBar = require('../search/SearchBar.react.jsx');
+
 
 var map = React.createClass({
 
