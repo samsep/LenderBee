@@ -51,7 +51,7 @@ var searchResults = React.createClass({
       lenderId={item.lender_id} itemId={item.id} onClick={ResultDiv.handleClick} />});
 
     return (
-      <div>
+      <div className="resultsContainer">
       <h1>Results</h1>
       {matchedItems}
       <Map ref="gMap" />
