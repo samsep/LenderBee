@@ -23,7 +23,6 @@ var mapStore = Reflux.createStore({
 				console.log('lerror', err);
 			} else {
 				var userData = JSON.parse(res.text);
-				console.log('USERSDATA', userData);
 				var address = ""+ userData.street + "" + ", " + userData.city + ", " + userData.state + ", " + userData.country
 				geocoder.geocode({'address': address}, function(results, status) {
 					if (status == google.maps.GeocoderStatus.OK) {
@@ -70,7 +69,7 @@ var mapStore = Reflux.createStore({
 				      console.log('Geocode was not successful for the following reason: ' + status);
 				    }
 					});
-					
+
 			setAllMap(that.data.map);
 			});
 		// }

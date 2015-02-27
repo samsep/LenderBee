@@ -45,7 +45,7 @@ var searchResults = React.createClass({
  },
 
   render: function() {
-    $('.map-container').remove();
+    
     var matchedItems = this.state.items.map(function(item) 
       {return <ResultDiv itemName={item.title} itemId={item.id} itemPrice={item.pollenprice} itemDescription={item.description}
       lenderId={item.lender_id} itemId={item.id} onClick={ResultDiv.handleClick} />});
