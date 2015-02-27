@@ -39,6 +39,7 @@ var mapStore = Reflux.createStore({
 
 	onSearchResComplete: function(items) {
 		var that = this;
+
 		var setAllMap = function (map) {
 		if (that.data.markers.length > 0) {
 			for (var i = 0; i < that.data.markers.length; i++) {
@@ -47,7 +48,8 @@ var mapStore = Reflux.createStore({
 			}
 		};
 		setAllMap(null);
-		that.trigger(that.data);
+		this.data.markers = [];
+		this.trigger(this.data);
 		
 		this.data.items = items;
 		this.trigger(this.data);
