@@ -34,7 +34,7 @@ controller.create = function(req, res, next){
   })
 };
 
-controller.searchItemByCity = function(req, res, next){
+controller.searchItemByCity = function(req, res, next){ //update to use user's Id instead of name. send your userId as param on client side. hard-coded ok now.
   User.find({
     where: {
       username: req.params.user
