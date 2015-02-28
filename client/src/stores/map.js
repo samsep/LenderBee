@@ -62,10 +62,6 @@ var mapStore = Reflux.createStore({
 		
 		// onMapMounted: function(domMap) {
 			this.data.items.forEach(function(item) {
-				
-				var selectItem = function() {
-					actions.selecItem(item.name, item.id, item.beebucks, item.description, item.lender);
-				}
 
 				var address = ""+ item.street + "" + ", " + item.city + ", " + item.state + ", " + item.country
 					geocoder.geocode({'address': address}, function(results, status) {
@@ -75,10 +71,13 @@ var mapStore = Reflux.createStore({
 				          position: results[0].geometry.location
 				      });
 
-				      var name = item.title;
-				      var link = '<a href="#/singleItem" onclick="selectItem()">'+item.title+'</a>'
+				      var selectItem = function() {
+				      	actions.selecItem(item.name, item.id, item.beebucks, item.description, item.lender);
+				      }
+				     
+				      var link = '<a href="#/singleItem">'+item.title+'</a>'
 				      // var contentString = "" + link + ": " + item.description + " Price: " + item.beebucks + "" + "Lender: " + item.lender.username + "Lender Rating: " + item.lender.rating + ""
-				      var contentString = '<div>'+ link +'</div>'+'<div>'+item.description+" Price: "+item.beebucks+'</div>'+'<div>'+ item.lender.username + '</div>'+'<div>'+ item.lender.rating + '</div>'
+				      var contentString = '<div>'+ link +'</div>'+'<div>'+item.description+" Price: "+item.beebucks+'</div>'+'<div>'+"Lender: " +item.lender.username + '</div>'+'<div>'+ item.lender.rating + '</div>'
 				      
 				      var infowindow = new google.maps.InfoWindow({
 		            content: contentString,
@@ -93,11 +92,11 @@ var mapStore = Reflux.createStore({
 				         infowindow.close();
 				       });
 
-				      google.maps.event.addListener(infowindow, 'click', function() {
-				      		console.log('INFO WINDOW CLICKED')
-				         // actions.selectItem(item.name, item.id, item.pollenprice, item.description);
-				         // ResultsMap.transitionTo('SingleItem');
-				       });
+				      // google.maps.event.addListener(infowindow, 'click', function() {
+				      // 		console.log('INFO WINDOW CLICKED')
+				      //    // actions.selectItem(item.name, item.id, item.pollenprice, item.description);
+				      //    // ResultsMap.transitionTo('SingleItem');
+				      //  });
 
 				      that.data.markers.push(marker);
 				      that.trigger(that.data);

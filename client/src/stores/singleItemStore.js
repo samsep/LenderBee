@@ -12,6 +12,8 @@ var singleItemStore = Reflux.createStore({
   listenables: [actions],
 
   onSelectItem: function(item, lender) {
+    console.log('ITEMZ SELECTED YO', item);
+    console.log('ENDER SELECTED', lender);
    this.data.item = item;
    this.data.lender= lender;
     // that.data.lender.firstname = lenderInfo.firstname;
