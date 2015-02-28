@@ -48,7 +48,7 @@ var userStore = Reflux.createStore({
 		request(makeUrl(api.user.fetchUserData, {fbid: this.data.fbid}), function(err, res){
 			if(err) {console.error('error fetching user data', err);}
 			else {
-				console.log(res.body);
+				console.log('MATTS USER DATA HERE', res.body);
 				this.data = res.body;
 				this.trigger(this.data);
 			}
