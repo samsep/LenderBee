@@ -9,7 +9,7 @@ var postItemStore = Reflux.createStore({
     onPostFormSubmitted: function(title, description, price, photos) {
       request
          .post('/api/items/1')
-         .send({'title': title, 'description': description, 'pollenprice': price, 'photos': photos})
+         .send({'title': title, 'description': description, 'beebucks': price, 'photos': photos})
          .end(function(err, res) {
             if(err) {
                 console.log("error on post: ", err)
