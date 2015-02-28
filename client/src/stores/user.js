@@ -9,7 +9,7 @@ var userStore = Reflux.createStore({
 	listenables: [actions],
 
 	data: {
-	  "id": 1,
+	  "id": 2,
 	  "fbid": "10100142512325989",
 	  "username": "Devin Otway",
 	  "firstname": "Devin",

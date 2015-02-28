@@ -15,6 +15,7 @@ var session					 = require('express-session');
 var cookieParser		 = require('cookie-parser');
 var methodOverride 	 = require('method-override');
 var fb 							 = require('./.ApiKeysFB.js');
+// var cloudinary = require('cloudinary');
 
 
 module.exports = function(app, express){
@@ -69,7 +70,15 @@ module.exports = function(app, express){
 	  done(null, obj);
 	});
 
-	
+	/*==============================
+	=     Cloudinary Config  =
+	==============================*/
+
+	// cloudinary.config({ 
+	//   cloud_name: 'dnfsudmqq', 
+	//   api_key: '885216345699682', 
+	//   api_secret: 'pjtyzhJS32WOhXrNi_5_FNLW-8A' 
+	// });
 
 	/*==============================
 	=            Routes            =

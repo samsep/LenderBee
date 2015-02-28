@@ -2,21 +2,25 @@ var React = require('react');
 var Reflux = require('reflux');
 var request = require('superagent');
 var actions = require('../actions/actions.js');
+var userStore = require('../stores/user.js');
+var api       = require('../utils/url-paths');
+var makeUrl   = require('make-url');
+var userId = userStore.getProp("id");
 
 var messagingStore = Reflux.createStore({
 
-  data: {messages: [], lender: null},
+  data: {messages: [], lenderId: null, userId: userStore.getProp("id")},
 
   //listens to actions
   listenables: [actions],
 
-  onLenderMessaged: function(lenderId, lenderUsername) {
-    this.data.lender = lenderUsername;
+  onLenderMessaged: function(lenderId) {
+    this.data.lenderId = lenderId;
     this.trigger(this.data);
     var that = this;
-    request("/api/messages/samin", function(res) {
+    request("/api/messages/" + userId, function(res) {
       that.data.messages = JSON.parse(res.text).filter(function(message) { 
-        return ((message.to === "samin" || message.from === "samin") && (message.from === lenderUsername || message.to === lenderUsername)) 
+        return ((message.to_id === userId || message.from_id === userId) && (message.from_id === lenderId || message.to_id === lenderId)) 
         })
         that.trigger(that.data);
     });
@@ -25,7 +29,7 @@ var messagingStore = Reflux.createStore({
   onMessageFormSubmitted: function(message, recipient) {
     var that = this;
       request
-            .post("/api/messages/samin"+ "/" + recipient + "")
+            .post("/api/messages/"+ userId + "/" + recipient + "")
             .send({'message': message})
             .end(function(err, res) {
               if (err) {
