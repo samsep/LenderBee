@@ -5,6 +5,7 @@ var request = require('superagent');
 var Router = require('react-router')
 var ResultsMap = require('../components/search/SingleItem.react.jsx');
 var Link = Router.Link;
+
 // var InfoContent = require('../components/map/infoContent.react.jsx');
 
 var mapStore = Reflux.createStore({
@@ -22,9 +23,10 @@ var mapStore = Reflux.createStore({
 		var that = this;
 		var geocoder = new google.maps.Geocoder()
 
+		//hard-coded user-ID to 1 currently
 		request.get("/api/users/1", function(res) {
 			if (res.err) {
-				console.log('lerror', err);
+				console.log('error', err);
 			} else {
 				var userData = JSON.parse(res.text);
 				console.log('THE USERS DATA', userData);
@@ -60,6 +62,11 @@ var mapStore = Reflux.createStore({
 		
 		// onMapMounted: function(domMap) {
 			this.data.items.forEach(function(item) {
+				
+				var selectItem = function() {
+					actions.selecItem(item.name, item.id, item.beebucks, item.description, item.lender);
+				}
+
 				var address = ""+ item.street + "" + ", " + item.city + ", " + item.state + ", " + item.country
 					geocoder.geocode({'address': address}, function(results, status) {
 				    if (status == google.maps.GeocoderStatus.OK) {
@@ -69,14 +76,14 @@ var mapStore = Reflux.createStore({
 				      });
 
 				      var name = item.title;
-				      var link = '<a href="#/singleItem" onclick="actions.selectItem(item.name, item.id, item.pollenprice, item.description)">'+item.title+'</a>'
-				      var contentString = "" + link + ": " + item.description + " Price: " + item.pollenprice + ""
-
+				      var link = '<a href="#/singleItem" onclick="selectItem()">'+item.title+'</a>'
+				      // var contentString = "" + link + ": " + item.description + " Price: " + item.beebucks + "" + "Lender: " + item.lender.username + "Lender Rating: " + item.lender.rating + ""
+				      var contentString = '<div>'+ link +'</div>'+'<div>'+item.description+" Price: "+item.beebucks+'</div>'+'<div>'+ item.lender.username + '</div>'+'<div>'+ item.lender.rating + '</div>'
+				      
 				      var infowindow = new google.maps.InfoWindow({
 		            content: contentString,
 		            maxWidth: 200
 				      });
-
 
 				      google.maps.event.addListener(marker, 'mouseover', function() {
 				         infowindow.open(that.data.map,marker);

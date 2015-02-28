@@ -36,7 +36,6 @@ controller.create = function(req, res, next){
   })
 };
 
-
 controller.searchItemByCity = function(req, res, next){
   var city = '';
   User.find({
