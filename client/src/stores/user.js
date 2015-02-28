@@ -41,6 +41,7 @@ var userStore = Reflux.createStore({
 
 	// TODO: Currently nothing is calling fetchUserData, we need to figure out where to trigger it (App Component?)
 	// and also where to get the fbid (session/cookie?)
+
 	// fetchUserData: function(){
 	// 	// [Warning] this.data.city, is the this context correct?
 	// 	request(makeUrl(api.user.fetchUserData, {fbid: this.data.fbid}), function(err, res){
@@ -65,6 +66,18 @@ var userStore = Reflux.createStore({
 	    }
 	  }.bind(this));
 	}, 
+
+// 	fetchUserData: function(){
+// 		// [Warning] this.data.city, is the this context correct?
+// 		request(makeUrl(api.user.fetchUserData, {fbid: this.data.fbid}), function(err, res){
+// 			if(err) {console.error('error fetching user data', err);}
+// 			else {
+// 				console.log('MATTS USER DATA HERE', res.body);
+// 				this.data = res.body;
+// 				this.trigger(this.data);
+// 			}
+// 		}.bind(this));
+// 	},
 	
 	getProp: function(prop) {
 		return this.data[prop] ? this.data[prop] : null;
