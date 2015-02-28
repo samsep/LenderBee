@@ -11,6 +11,7 @@ var reviews          = require('./reviews/controller.js');
 /* Facebook Auth */
 var passport         = require('passport');
 var FacebookStrategy = require('passport-facebook').Strategy;
+
 var session          = require('express-session');
 var cookieParser     = require('cookie-parser');
 var methodOverride   = require('method-override');
@@ -23,6 +24,7 @@ var fb               = require('./.ApiKeysFB.js');
 
 module.exports = function(app, express){
 
+<<<<<<< HEAD
   /*========================================
   =            Mount Middleware            =
   ========================================*/
@@ -141,6 +143,7 @@ module.exports = function(app, express){
     console.log('ensureAuthenticated Called -------------');
     if(req.isAuthenticated()) {return next();}
     res.redirect('/login');
+
   };
 
   // [Note] Not sure how we will handle logging out yet...don't want a seperate static file

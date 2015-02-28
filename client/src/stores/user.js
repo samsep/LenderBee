@@ -26,7 +26,6 @@ var userStore = Reflux.createStore({
 	  // "createdAt": "2015-02-28T02:23:15.000Z",
 	  // "updatedAt": "2015-02-28T02:23:15.000Z"
 
-
 	init: function(){
 		// TODO: Listen to actions called form APP component for initializing the app and fetching initual user data
 		this._fake_fetchUserData();

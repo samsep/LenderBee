@@ -50,11 +50,11 @@ controller.create = function(req, res, next){
 				res.send(user);
 			})
 		}
-		else{
-			User.update(newUser).then(function(user){
-				res.send(user);
-			})
-		}
+		// else{
+		// 	User.update(newUser).then(function(user){
+		// 		res.send(user);
+		// 	})
+		// }
 	})
 // 	User.create(req.body)
 // 		.then(function(user){
@@ -67,7 +67,7 @@ controller.create = function(req, res, next){
 }
 
 controller.getOne = function(req, res, next){
-	var userId = req.params.userID;
+	var userId = req.params.userId;
 	User.find({
 		where: {
 			id: userId
