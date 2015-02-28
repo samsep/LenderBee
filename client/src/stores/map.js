@@ -22,11 +22,12 @@ var mapStore = Reflux.createStore({
 		var that = this;
 		var geocoder = new google.maps.Geocoder()
 
-		request("/api/users/5", function(res) {
+		request.get("/api/users/1", function(res) {
 			if (res.err) {
 				console.log('lerror', err);
 			} else {
 				var userData = JSON.parse(res.text);
+				console.log('THE USERS DATA', userData);
 				var address = ""+ userData.street + "" + ", " + userData.city + ", " + userData.state + ", " + userData.country
 				geocoder.geocode({'address': address}, function(results, status) {
 					if (status == google.maps.GeocoderStatus.OK) {

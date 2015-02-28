@@ -13,7 +13,7 @@ var searchStore = Reflux.createStore({
 
     onSearchSubmit: function(searchedVal) {
       var that = this;
-        request("/api/items/city/samin/" + "" + searchedVal + "", function(res){
+        request("/api/items/city/1/" + "" + searchedVal + "", function(res){
           // that.data.items = res;
           that.data.items = JSON.parse(res.text);
           that.trigger(that.data);
