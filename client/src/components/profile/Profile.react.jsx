@@ -15,14 +15,12 @@ var Profile = React.createClass({
 
   componentWillMount: function() {
     if(!this.state.data.reviews) { // if there are no reviews on this components state property
-      console.log('profile component is attempting to fetch reviews');
       actions.fetchReviews(); // fetch the reviews from reviewStore
     }
   },
 
   render: function(){
     var allReviews;
-    console.log('rendering profile with state', this.state);
     if(this.state.data.reviews){
       //creates component for each review and loads them into the array reviewGroup
       allReviews = this.state.data.reviews.map(function(review) {

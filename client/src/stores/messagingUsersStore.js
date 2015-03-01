@@ -5,7 +5,6 @@ var actions = require('../actions/actions.js');
 var userStore = require('./user.js');
 var api       = require('../utils/url-paths');
 var makeUrl   = require('make-url');
-var userId = userStore.getProp("id");
 
 var messagingUsersStore = Reflux.createStore({
 
@@ -26,6 +25,7 @@ var messagingUsersStore = Reflux.createStore({
   //gets the item info from the database and sets the data to the item info
   init: function(){
     var that = this;
+    var userId = userStore.getProp("id");
     request("/api/messages/" + userId + "", function(res) {
       that.data.conversations = JSON.parse(res.text);
       that.data.conversations.forEach(function(conversation) { 

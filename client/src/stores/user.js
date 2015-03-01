@@ -26,18 +26,18 @@ var userStore = Reflux.createStore({
 	  // "createdAt": "2015-02-28T02:23:15.000Z",
 	  // "updatedAt": "2015-02-28T02:23:15.000Z"
 
-	init: function(){
-		// TODO: Listen to actions called form APP component for initializing the app and fetching initual user data
-		this._fake_fetchUserData();
-	},
+	// init: function(){
+	// 	// TODO: Listen to actions called form APP component for initializing the app and fetching initual user data
+	// 	this._fake_fetchUserData();
+	// },
 
-	// TODO: Remove this when we actually fetching userData from server...I need this to propogate userdata to all stores on app load
-	_fake_fetchUserData: function(){
-		setTimeout(function(){
-			console.log('userStore triggering with', this.data);
-			this.trigger(this.data)
-		}.bind(this), 100)
-	},
+	// // TODO: Remove this when we actually fetching userData from server...I need this to propogate userdata to all stores on app load
+	// _fake_fetchUserData: function(){
+	// 	setTimeout(function(){
+	// 		console.log('userStore triggering with', this.data);
+	// 		this.trigger(this.data)
+	// 	}.bind(this), 100)
+	// },
 
 	// TODO: Currently nothing is calling fetchUserData, we need to figure out where to trigger it (App Component?)
 	// and also where to get the fbid (session/cookie?)
@@ -55,15 +55,15 @@ var userStore = Reflux.createStore({
 	// },
 
 	onMountUser: function(data){
-	  var url = "/api/users/init/"+data.id;
+	  var url = "/api/users/init/" + data.id + "";
 	  request.get(url, function(err, res){
 	    if ( err ) {
 	      console.err('error trying to get item information for user', err);
 	    }
 	    else {
-	      this.data = JSON.parse(res.text);
-	      console.log('the data to be used going forward', this.data);
+	      this.data = res.body;
 	      this.trigger(this.data);
+	      this.getProp('id');
 	    }
 	  }.bind(this));
 	}, 

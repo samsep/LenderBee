@@ -4,7 +4,6 @@ var Reflux = require('reflux');
 var userStore = require('./user.js');
 var api       = require('../utils/url-paths');
 var makeUrl   = require('make-url');
-var userId = userStore.getProp("id");
 // var cloudinary = require('cloudinary');
 
 var postItemStore = Reflux.createStore({
@@ -15,6 +14,7 @@ var postItemStore = Reflux.createStore({
        // cloudinary.uploader.upload(photos, function(res) {
        // console.log('photos res', res);
        // })
+      var userId = userStore.getProp("id");
       request
          .post("/api/items/" + userId + "")
          .send({'title': title, 'description': description, 'beebucks': price, 'photos': photos})

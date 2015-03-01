@@ -9,19 +9,20 @@ var Messaging = React.createClass({
   //listens to messagingStore
   mixins: [Reflux.connect(messagingStore)],
 
-  handleSubmit: function() {
-    actions.messageFormSubmitted();
-  },
+  // handleSubmit: function() {
+  //   actions.messageFormSubmitted();
+  // },
 
   render: function(){
     //creates component for each message and loads them into the array messageGroup
     var that = this;
+    var fromName = this.state.userName;
     var messageGroup = this.state.messages.map(function(singleMessage) {
-      return (<Message message={singleMessage.message} from={singleMessage.from_id} />);
+      return (<Message message={singleMessage.message} to={singleMessage.to_id} fromName={fromName}/>);
     });
     return (
       <div>
-        <p>Messaging: {this.state.lender}</p>
+        <p>Messaging: {this.state.lenderName}</p>
         <div className="messageWindow">
           <ul>
             {messageGroup}

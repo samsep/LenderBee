@@ -24,7 +24,6 @@ var fb               = require('./.ApiKeysFB.js');
 
 module.exports = function(app, express){
 
-<<<<<<< HEAD
   /*========================================
   =            Mount Middleware            =
   ========================================*/
