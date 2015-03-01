@@ -16,11 +16,13 @@ var searchStore = Reflux.createStore({
     onSearchSubmit: function(searchedVal) {
       var that = this;
       var userId = userStore.getProp('id');
-
       request(makeUrl(api.items.searchByCity, {userId: userId, title: searchedVal}), function(res){
-        // that.data.items = res;
-        console.log('THE DATA RETURNED FROM THE SEARCH', res.body);
-        that.data.items = JSON.parse(res.text);
+
+        that.data.items = JSON.parse(res.text).filter(function(item) {
+          return (item.lender_id !== userId && item.borrowed == 0);
+        });
+        console.log('item results', that.data.items);
+
         that.trigger(that.data);
         actions.searchResComplete(that.data.items);
       });

@@ -52,7 +52,7 @@ var PostPage = React.createClass({
         <textarea className="form-control" id="itemPostDescription" rows="3" placeholder="Describe Your Item" name="description"></textarea>
         </div>
         <div className="form-group">
-          <label for="exampleInputEmail1">Enter Bee Bucks</label>
+          <label for="exampleInputEmail1">Enter BeeBucks</label>
           <input type="number" min="1" step="1" className="form-control" id="itemPostBeeBucks" placeholder="$$$" name="beebucks" />
         </div>
         <div className="form-group">
