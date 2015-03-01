@@ -21,7 +21,6 @@ var searchStore = Reflux.createStore({
         that.data.items = JSON.parse(res.text).filter(function(item) {
           return (item.lender_id !== userId && item.borrowed == 0);
         });
-        console.log('item results', that.data.items);
 
         that.trigger(that.data);
         actions.searchResComplete(that.data.items);
