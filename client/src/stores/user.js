@@ -62,6 +62,7 @@ var userStore = Reflux.createStore({
 	    }
 	    else {
 	      this.data = JSON.parse(res.text);
+	      console.log('the data to be used going forward', this.data);
 	      this.trigger(this.data);
 	    }
 	  }.bind(this));
