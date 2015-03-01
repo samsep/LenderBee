@@ -1,6 +1,10 @@
 var actions = require('../actions/actions.js');
 var request = require('superagent');
 var Reflux = require('reflux');
+var userStore = require('./user.js');
+var api       = require('../utils/url-paths');
+var makeUrl   = require('make-url');
+var userId = userStore.getProp("id");
 // var cloudinary = require('cloudinary');
 
 var postItemStore = Reflux.createStore({
@@ -12,16 +16,16 @@ var postItemStore = Reflux.createStore({
        // console.log('photos res', res);
        // })
       request
-         .post('/api/items/1')
+         .post("/api/items/" + userId + "")
          .send({'title': title, 'description': description, 'beebucks': price, 'photos': photos})
          .end(function(err, res) {
             if(err) {
                 console.log("error on post: ", err)
             }
-            $('#itemPostTitle').val("")
-            $('#itemPostDescription').val("")
-            $('#itemPostPollenPrice').val("")
-            $('#itemPostPhotos').val("")
+            $('#itemPostTitle').val("");
+            $('#itemPostDescription').val("");
+            $('#itemPostPollenPrice').val("");
+            $('#itemPostPhotos').val("");
 
            alert('Your item is now posted!');
          });
