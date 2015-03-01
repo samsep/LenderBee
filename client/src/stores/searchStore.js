@@ -16,9 +16,10 @@ var searchStore = Reflux.createStore({
     onSearchSubmit: function(searchedVal) {
       var that = this;
       var userId = userStore.getProp('id');
+
       request(makeUrl(api.items.searchByCity, {userId: userId, title: searchedVal}), function(res){
         // that.data.items = res;
-        console.log('THE DATA RETURNED FROM THE SEARCH', JSON.parse(res.text))
+        console.log('THE DATA RETURNED FROM THE SEARCH', res.body);
         that.data.items = JSON.parse(res.text);
         that.trigger(that.data);
         actions.searchResComplete(that.data.items);
