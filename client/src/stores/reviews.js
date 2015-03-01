@@ -52,6 +52,8 @@ var reviewStore = Reflux.createStore({
 
 	onReviewFormSubmitted: function(reviewId, review, rating) {
 		console.log('HERE IS THE RATING RESULTSSS', reviewId, review, rating);
+		$('#reviewBoxText').val("");
+		$('#reviewRating').val("");
 		// request()
 	},
 
