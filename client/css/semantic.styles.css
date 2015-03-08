@@ -31,6 +31,12 @@ div.searchBar {
   object-fit: cover;
 }
 
+.ui.medium.image {
+  margin: auto;
+  height: 300px;
+  object-fit: cover;
+}
+
 .ui.tiny.image {
   opacity: 1;
 }
