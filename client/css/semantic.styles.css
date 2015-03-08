@@ -77,3 +77,7 @@ div.ui.comments:last-child {
   background-color: #FFD34E;
   color: black;
 }
+
+form.ui.reply.form.messageBox {
+  height: 5%;
+}
