@@ -57,8 +57,8 @@ var reviewStore = Reflux.createStore({
 		      if(err) {
 		          // console.log("error on review: ", err)
 		      } else {
+		      	console.log('ZE REVIEW SUBMTTED')
 		      	$('#reviewBoxText').val("");
-						$('#reviewRating').val("");
 		        alert('Thanks for the review!');
 						actions.fetchPendingReviews();
 		      }

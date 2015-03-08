@@ -31,9 +31,9 @@ var path = {
     ALL: [__dirname + '/client/src/*.js', __dirname + '/client/src/**/*.js', __dirname + '/client/css/*.css', __dirname + '/client/index.html', __dirname + '/client/login.html']
   },
   dest: {
-    OUT: 'lenderbee.js',
+    OUT: 'LenderBee.js',
     MINIFIED_OUT: 'lenderbee.min.js',
-    DEST_SRC: 'client/dist',
+    DEST_SRC: 'client/dist/src',
     DEST_BUILD: 'client/dist/build',
     DEST: 'client/dist'
   },
