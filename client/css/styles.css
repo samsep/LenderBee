@@ -333,6 +333,19 @@ div.searchResultsList {
   border: 1px solid #FDFDFD;
 }
 
+div.itemTag {
+  position: absolute;
+  bottom: 10%;
+  textAlign: left;
+  left: 7%;
+  color: white;
+  backgroundColor: black;
+  opacity: 0.75;
+  padding: 2%;
+  borderRadius: 5px;
+  minWidth: 25%;
+}
+
 div#mapPanel {
   visibility: visible;
 }
