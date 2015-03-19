@@ -18,13 +18,6 @@ var searchBar = React.createClass({
   //TODO: Connect to DB and display items
  },
 
- // <div className="input-group">
- //   <input type="text" className="form-control" placeholder="Search for..." id="searchBar" />
- //     <span className="input-group-btn">
- //       <button className="btn btn-warning" type="submit" onClick={this.handleSubmit}>Go!</button>
- //     </span>
- // </div>
-
   render: function() {
     return (
       <div className="ui fluid icon input searchBar">

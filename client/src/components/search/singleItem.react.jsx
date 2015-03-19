@@ -9,7 +9,6 @@ var RatingStarStatic  = require('../review/ratingStarStatic.react.jsx');
 var Router = require('react-router');
 
 var singleItem = React.createClass({
-  //listens to singleItemStore
   mixins: [Reflux.connect(singleItemStore), Router.Navigation],
 
   componentDidMount: function() {
@@ -25,19 +24,6 @@ var singleItem = React.createClass({
     actions.lenderMessaged(this.state.lender.id);
      this.transitionTo('Messaging');
   },
-
-  // <div>
-  //   <div className="singleItemComponent">
-  //   <img className="singleItemPic" src={this.state.item.imageurl} alt="item"/>
-  //   <p>Item: {this.state.item.title}</p>
-  //   <p>Description: {this.state.item.description}</p>
-  //   <p>BeeBucks: {this.state.item.beebucks}</p>
-  //   <span>Lender: {this.state.lender.username+ " "}</span>
-  //   <div><img src={this.state.lender.fbpicture} className="singleItemFBPicDiv"/></div>
-  //   <div className="ui teal button" name="messageLender" onClick={this.handleMessageLender}><div className="column"><i Name="mail outline icon"></i></div>Message</div>
-  //   <div className="ui yellow button" name="requestItem" onClick={this.handleItemRequest}>Request</div>
-  //   </div>
-  // </div>
 
   render: function(){
     return (

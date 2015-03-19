@@ -18,19 +18,6 @@ var InnerImage = React.createClass({
 
   render: function(){
 
-    var elementStyle = {
-      position: "absolute",
-      bottom: "10%",
-      textAlign: "left",
-      left: "7%",
-      color: "white",
-      backgroundColor: "black",
-      opacity: "0.75",
-      padding: "2%",
-      borderRadius: "5px",
-      minWidth: "25%"
-    };
-
     var itemInfo = this.props.itemInfo;
 
     return (
@@ -39,7 +26,7 @@ var InnerImage = React.createClass({
           <Link to="SingleItem" onClick={this.handleClick}>
           <div>
             <img className="ui fluid image crop" src={itemInfo.imageurl} alt={itemInfo.title}></img>
-            <div style={elementStyle}>
+            <div className="itemTag">
               <div>
                 <i className="tiny tag icon"></i>
                 <span>{itemInfo.title}</span>
