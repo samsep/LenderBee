@@ -38,7 +38,6 @@ var SideNavBar = React.createClass({
 
 	componentWillMount: function() {
 		document.addEventListener('click', this.handleClick, false);
-		// $('#sideNav').addClass('animated slideInRight');
 	},
 
 	componentDidMount: function() {
@@ -47,7 +46,6 @@ var SideNavBar = React.createClass({
 
 	componentWillUnmount: function() {
 		document.removeEventListener('click', this.handleClick, false);
-		// $('#sideNav').addClass('animated slideOutLeft');
 	},
 
 	render: function() {

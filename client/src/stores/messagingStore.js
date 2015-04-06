@@ -43,14 +43,8 @@ var messagingStore = Reflux.createStore({
             .post("/api/messages/"+ userId + "/" + recipient + "")
             .send({'message': message})
             .end(function(err, res) {
-              // if (err) {
-              //   console.log("send message error", err);
-              // }
-              // else {
                 $('#messageBoxText').val("");
                 actions.lenderMessaged(recipient);
-              // }
-
             });
   },
   

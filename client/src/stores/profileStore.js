@@ -24,13 +24,11 @@ var profileStore = Reflux.createStore({
 
   // [Note] listens for triggers from userStore and updates it's own state
   updateUserData: function(user){
-    // console.log("profile store just updated its user data ", user);
     this.data.user = user;
     this.trigger(this.data);
   },
 
   onFetchReviews: function(){
-    console.log('fetching reviews ');
     var userId = userStore.getProp('id');
     request.get(makeUrl(api.reviews.getReviews, {user: userId}), function(err, res){
       if(err) {console.error('error fetching reivew information', err);}

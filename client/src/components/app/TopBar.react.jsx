@@ -13,13 +13,6 @@ var TopBar = React.createClass({
     actions.toggleSideNav();
   },
 
-
-      // <div id="topbar" className="ui menu">
-      //   <div className="item">
-      //   </div>          
-      // </div>
-      // <i className="align justify icon large" onClick={this.props.toggleSideNavBar}></i>     
-
   render: function() {
     var imgStyle = {
       width: "22px",

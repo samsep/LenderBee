@@ -16,11 +16,6 @@ var messageStore = Reflux.createStore({
 
   //gets the item info from the database and sets the data to the item info
   init: function(){
-   //  request.get("/api/items/:user", function(res){
-   //    console.log(res.body);
-   //    this.data.item = res.body;
-   //    this.trigger(this.data);
-   // })
   },
 
   //sets the state to the item data

@@ -20,11 +20,6 @@ var singleItemStore = Reflux.createStore({
    
   }, 
 
-  // currentItem: {
-  //  //trigger(this.itemSelected);
-  //  //component renders current item. 
-  // },
-
   onItemRequestSubmitted: function(itemId, userId) {
     //request DB to notify other user;
     // console.log('item requested', "/api/notifications/" + "" + itemName + "/" + borrower + "");
