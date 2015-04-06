@@ -9,18 +9,11 @@ var borrowedStore = Reflux.createStore({
     onRequestBorrowedPage: function() {
       var that = this;
         request("/api/items/:user", function(res){
-          //TODO: Endpoint will query DB for user
+          //Endpoint will query DB for user
           that.data.items = JSON.parse(res.text);
           that.trigger(that.items);
         })
       },
-
-    // onSearchSubmit: function() {
-    //     // this.searchInput = $('#searchBar').val();
-    //     // console.log('SEARCHINP', this.searchInput);
-    //     // $('#searchBar').val('');
-    //     this.init();
-    // },
 
     getInitialState: function() {
         return this.data;

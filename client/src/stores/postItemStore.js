@@ -22,7 +22,6 @@ var postItemStore = Reflux.createStore({
         $('#itemPostTitle').val("");
         $('#itemPostDescription').val("");
         $('#itemPostBeeBucks').val("");
-
         $('#successMessage').addClass("success");
         $('#successMessage').fadeIn(5000, function() {});
      });

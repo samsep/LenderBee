@@ -8,10 +8,6 @@ var api         = require('../utils/url-paths.js');
 var searchStore = Reflux.createStore({
     listenables: [actions],
     data: {items: [], searched: null},
-    
-    init: function() {
-      // this.data.searched = $('#searchBar').val();
-    },
 
     onSearchSubmit: function(searchedVal) {
       var that = this;

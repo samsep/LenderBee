@@ -14,12 +14,7 @@ var mapStore = Reflux.createStore({
 	mixins: [Router.Navigation],
 	listenables: [actions],
 	data: {items: [], map: {}, markers: [], origAddress: {}},
-	
-	
-	// TODO: The mapStore needs to hold the data to be used for the map
-	// The addresses from the results search need to be set here for rendering
-	// MVP + 1/2 also display tooltip with information about what is at that location
-	// MVP + 1, clicking on a specific location in the map will highlight that item in the search view  	
+	 	
 	onMapMounted: function(map) {
 		this.data.map = map;
 		var that = this;
@@ -96,12 +91,6 @@ var mapStore = Reflux.createStore({
 			              actions.selectItem(item, item.lender);
 			          });
 			      });
-
-			      // google.maps.event.addListener(infowindow, 'click', function() {
-			      // 		console.log('INFO WINDOW CLICKED')
-			      //    // actions.selectItem(item.name, item.id, item.pollenprice, item.description);
-			      //    // ResultsMap.transitionTo('SingleItem');
-			      //  });
 
 			      that.data.markers.push(marker);
 			      that.trigger(that.data);

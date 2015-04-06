@@ -9,9 +9,6 @@ var lentStore = Reflux.createStore({
     onBorrowedItemReturned: function() {
       // var that = this;
       console.log('item returned');
-      // request('/api/items/:user/:item', function(res) {
-
-      // })
     },
     
     onRequestLentPage: function() {
@@ -23,13 +20,6 @@ var lentStore = Reflux.createStore({
           that.trigger(that.items);
         })
       },
-
-    // onSearchSubmit: function() {
-    //     // this.searchInput = $('#searchBar').val();
-    //     // console.log('SEARCHINP', this.searchInput);
-    //     // $('#searchBar').val('');
-    //     this.init();
-    // },
 
     getInitialState: function() {
         return this.data;
